@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AhirCO2freeworld</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: #333;
+            background: url('Default_Create_a_image_a_tree_is_a_cry_and_all_peoples_around_2.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .navbar {
+            background-color: rgba(51, 51, 51, 0.8);
+            overflow: hidden;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .navbar a {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #56d05a;
+        }
+        .box {
+            padding: 20px;
+            background-color: #f9f9f9d6;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #e7f7e7;
+            text-align: center;
+        }
+        .result p {
+            margin: 10px 0;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+            .navbar a {
+                display: block;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="https://adghjbvf.github.io/Ahir.com/">Mainsite</a>
+        <a href="infotree.html">TreeInFo</a>
+
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="container">
+        <h1>Tree Oxygen Calculator</h1>
+        <div class="box">
+            <div class="input-group">
+                <label for="numberOfTrees">Number of Trees</label>
+                <input type="number" id="numberOfTrees" placeholder="Enter number of trees" required>
+            </div>
+            <div class="input-group">
+                <label for="oxygenPerTree">Oxygen per Tree (in pounds)</label>
+                <input type="number" id="oxygenPerTree" placeholder="Enter oxygen produced per tree in pounds" required>
+            </div>
+            <button onclick="calculateOxygen()">Calculate</button>
+        </div>
+        <div class="result" id="result">
+            <p>Total Oxygen in Pounds: <span id="totalOxygenPounds">0</span></p>
+            <p>Total Oxygen in Kilograms: <span id="totalOxygenKilograms">0</span></p>
+        </div>
+    </div>
+    <script>
+        function calculateOxygen() {
+            const numberOfTrees = document.getElementById('numberOfTrees').value;
+            const oxygenPerTree = document.getElementById('oxygenPerTree').value;
+
+            if (numberOfTrees && oxygenPerTree) {
+                const totalOxygenPounds = numberOfTrees * oxygenPerTree;
+                const totalOxygenKilograms = totalOxygenPounds * 0.453592;
+
+                document.getElementById('totalOxygenPounds').textContent = totalOxygenPounds.toFixed(2);
+                document.getElementById('totalOxygenKilograms').textContent = totalOxygenKilograms.toFixed(2);
+            } else {
+                alert('Please enter valid inputs.');
+            }
+        }
+    </script>
+</body>
+</html>
